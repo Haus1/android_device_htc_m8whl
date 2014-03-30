@@ -3,15 +3,14 @@
 -include vendor/htc/m8_whl/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
-TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := msm8974
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_CPU_VARIANT := krait
 
+TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := m8whl
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3
@@ -44,11 +43,6 @@ TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS := 255
+#TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+#TW_MAX_BRIGHTNESS := 255
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_NO_SCREEN_BLANK := true
-
-#TARGET_RECOVERY_INITRC := device/htc/m8_whl/recovery/init.rc
-#TWRP_EVENT_LOGGING := true
-#TW_IGNORE_MAJOR_AXIS_0 := true
