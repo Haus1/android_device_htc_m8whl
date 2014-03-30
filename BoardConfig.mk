@@ -54,5 +54,5 @@ TW_NO_SCREEN_BLANK := true
 
 #TARGET_RECOVERY_INITRC := device/htc/m8_whl/recovery/init.rc
 
-#TWRP_EVENT_LOGGING := true
-#TW_IGNORE_MAJOR_AXIS_0 := true
+TWRP_EVENT_LOGGING := true
+TW_IGNORE_MAJOR_AXIS_0 := true
