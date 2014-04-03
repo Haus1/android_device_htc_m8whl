@@ -1,6 +1,5 @@
-#USE_CAMERA_STUB := true
 # inherit from the proprietary version
--include vendor/htc/m8_whl/BoardConfigVendor.mk
+-include vendor/htc/m8whl/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
@@ -16,16 +15,21 @@ TARGET_BOOTLOADER_BOARD_NAME := m8whl
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 ehci-hcd.park=3
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02008000 --dt device/htc/m8_whl/dtb --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02008000 --tags_offset 0x01e00000
 
-# fix this up by examining /proc/mtd on a running device
+# Build kernel from source
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+TARGET_KERNEL_CONFIG := m8whl_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/m8whl
+
+# fix this up by examining /proc/emmc on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x01800000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0xa8000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x58000000
 BOARD_FLASH_BLOCK_SIZE := 512
-TARGET_PREBUILT_KERNEL := device/htc/m8_whl/kernel
 
+# Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
