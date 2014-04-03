@@ -11,8 +11,8 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/htc/m8_whl/device_m8_whl.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := m8_whl
-PRODUCT_NAME := omni_m8_whl
+PRODUCT_DEVICE := m8whl
+PRODUCT_NAME := omni_m8whl
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := m8_whl
+PRODUCT_MODEL := One M8
 PRODUCT_MANUFACTURER := htc
