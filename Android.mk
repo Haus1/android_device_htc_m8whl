@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter m8_whl,$(TARGET_DEVICE)),)
+ifneq ($(filter m8whl,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
