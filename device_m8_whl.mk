@@ -3,19 +3,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/htc/m8_whl/m8_whl-vendor.mk)
+$(call inherit-product, build/target/product/full.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/m8_whl/overlay
+$(call inherit-product-if-exists, vendor/htc/m8whl/m8whl-vendor.mk)
 
-LOCAL_PATH := device/htc/m8_whl
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+DEVICE_PACKAGE_OVERLAYS += device/htc/m8whl/overlay
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+LOCAL_PATH := device/htc/m8whl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/etc/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc \
@@ -67,8 +61,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/offmode_charging_images/y_8.png:recovery/root/res/offmode_charging_images/y_8.png \
     $(LOCAL_PATH)/recovery/offmode_charging_images/y_9.png:recovery/root/res/offmode_charging_images/y_9.png \
     $(LOCAL_PATH)/recovery/offmode_charging_images/y_percent.png:recovery/root/res/offmode_charging_images/y_percent.png
-
-$(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_NAME := full_m8
-PRODUCT_DEVICE := m8
